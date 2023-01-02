@@ -28,6 +28,9 @@
 	color: var(--color4);
 	display: flex;
 }
+.right a{
+	cursor: pointer;
+}
 .rightBtn {
 	border-radius: 16px;
 	box-shadow: 0 0 4px 4px;

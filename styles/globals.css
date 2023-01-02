@@ -122,3 +122,10 @@ a {
 		color-scheme: dark;
 	}
 }
+
+
+/* Apna KHUD KA CSS */
+.gutter{
+	cursor: col-resize;
+
+}

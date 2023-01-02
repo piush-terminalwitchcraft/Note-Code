@@ -1,0 +1,28 @@
+.mainBody{
+    width: 100vw !important;
+    height: 100vh !important;
+    color: var(--color4);
+}
+
+.header{
+    height: 4rem;
+}
+
+.mainContainer{
+    height: calc(100vh - 4rem - 16px);
+    display: flex;
+    margin: 8px 0;    
+}
+
+.leftPart, .rightPart{
+    height: 100%;
+    border: 2px solid var(--color2);
+}
+.leftPart{
+    padding: 4px;
+    overflow-y: auto;
+    background-color: var(--color4);
+    color: white;
+    border-radius: 16px;
+}
+
