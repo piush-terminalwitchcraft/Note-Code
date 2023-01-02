@@ -1,1 +1,1 @@
-export {default as LandingNavbar} from "./landingNavbar";
+export {default as LandingNavbar} from "./LandingNavbar";
