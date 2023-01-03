@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import { CKEditor } from "ckeditor4-react";
 import parse from 'html-react-parser';
+import TextViewer from "./Viewer";
 function CustomEditor() {
   const [data, setData] = useState('');
   return (
@@ -57,6 +58,10 @@ function CustomEditor() {
                 "Blockquote",
               ],
             },
+            {
+              name: "font",
+              items: ["FontSize"]
+            },
           ],
           // Add the code snippet and image plugins here
           extraPlugins: "codesnippet,image,uploadimage",
@@ -69,6 +74,8 @@ function CustomEditor() {
           },
           // For customizing theme
           uiColor: "#b9d7ea",
+          // TAB ISSUE 
+          tabSpaces: 4,
   
           // For browser upload of image
           filebrowserBrowseUrl: "/browser/browse.php",
@@ -87,11 +94,12 @@ function CustomEditor() {
             // withCredentials: true
           },
         }}
+        tabindex="-1"
         data={data}
         onChange={(event) => setData(event.editor.getData())}
       />
-      <button onClick={() => console.log(data)}>Print HTML</button>
-      {parse(data)}
+      <TextViewer htmlData={data}/>
+  
     </div>
   );
 }
