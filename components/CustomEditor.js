@@ -40,6 +40,7 @@ function CustomEditor() {
                 "RemoveFormat",
                 "CopyFormatting",
                 "CodeSnippet",
+                "SpecialChar"
               ],
             },
             {
@@ -58,13 +59,10 @@ function CustomEditor() {
                 "Blockquote",
               ],
             },
-            {
-              name: "font",
-              items: ["FontSize"]
-            },
+            
           ],
           // Add the code snippet and image plugins here
-          extraPlugins: "codesnippet,image,uploadimage",
+          extraPlugins: "codesnippet,image,uploadimage,font",
           // Configure the code snippet plugin
           codeSnippet_theme: "atelier-lakeside.dark",
           // Configure the image plugin
@@ -76,6 +74,8 @@ function CustomEditor() {
           uiColor: "#b9d7ea",
           // TAB ISSUE 
           tabSpaces: 4,
+          //dsiabling source tags 
+          removePlugins: 'elementspath',
   
           // For browser upload of image
           filebrowserBrowseUrl: "/browser/browse.php",
@@ -93,6 +93,7 @@ function CustomEditor() {
             maximumFileSize: 500000, // 500 kB = 500000 B
             // withCredentials: true
           },
+          fontSize_sizes: '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px'
         }}
         tabindex="-1"
         data={data}
