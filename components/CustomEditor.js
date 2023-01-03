@@ -5,8 +5,8 @@ import TextViewer from "./Viewer";
 function CustomEditor() {
   const [data, setData] = useState('');
   return (
-    <div>
-      <CKEditor
+    <div >
+      <CKEditor 
         config={{
           toolbar: [
             {
@@ -98,8 +98,12 @@ function CustomEditor() {
         tabindex="-1"
         data={data}
         onChange={(event) => setData(event.editor.getData())}
+        style={ {
+          borderRadius: '12px',
+          border:'none'
+        } }
       />
-      <TextViewer htmlData={data}/>
+      <TextViewer htmlData={data} />
   
     </div>
   );
