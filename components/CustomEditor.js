@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import { CKEditor } from "ckeditor4-react";
-import parse from 'html-react-parser';
-import TextViewer from "./Viewer";
+
 function CustomEditor() {
   const [data, setData] = useState('');
   return (
@@ -103,7 +102,6 @@ function CustomEditor() {
           border:'none'
         } }
       />
-      <TextViewer htmlData={data} />
   
     </div>
   );

@@ -43,8 +43,8 @@
 }
 .rightBtn:hover {
 	background-color: var(--color4);
-	transition: all 0.5s ease-in-out;
-	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 .rightLink {
 	text-align: center;
@@ -57,8 +57,8 @@
 }
 .rightLink:hover {
 	border: 2px solid var(--color2);
-	transition: all 0.5s ease-in-out;
-	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
 }
 
 /*Tablet */

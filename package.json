@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-regular-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@next/font": "13.1.0",
     "ckeditor4-react": "^4.1.1",
     "eslint": "8.30.0",
@@ -19,6 +23,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-split": "^2.0.14",
+    "react-svg": "^15.1.17",
     "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {

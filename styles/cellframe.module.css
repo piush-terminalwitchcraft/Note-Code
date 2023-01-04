@@ -1,0 +1,8 @@
+.mainContainer{
+    background-color: var(--color3);
+    width: 100%;
+    border-bottom: 2px solid var(--light-grey);
+}
+.nodeData{
+    display: flex;
+}

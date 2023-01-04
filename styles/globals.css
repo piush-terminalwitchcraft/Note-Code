@@ -36,11 +36,13 @@
 		#00000010,
 		#00000080
 	);
-
+ 
 	--color1: #f7fbfc;
-	--color2: #d6e6f2;
-	--color3: #b9d7ea;
-	--color4: #769fcd;
+	--color2: #8FBCBB;
+	--color3: #88C0D0;
+	--color4: #81A1C1;
+	--color5: #5E81AC;
+	--light-grey: rgb(203, 203, 203);
 
 	--callout-rgb: 238, 240, 241;
 	--callout-border-rgb: 172, 175, 176;
@@ -127,6 +129,12 @@ a {
 /* Apna KHUD KA CSS */
 .gutter{
 	cursor: col-resize;
+	width: 6px!important;
+	background-image: url('./../public/three_dots.svg');
+  	background-repeat: no-repeat;
+  	background-position: center;
+  	background-size: 3px;
+	background-color: var(--light-grey);
 
 }
 
