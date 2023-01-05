@@ -1,8 +1,61 @@
 .mainContainer{
     background-color: var(--color3);
     width: 100%;
-    border-bottom: 2px solid var(--light-grey);
+    /* border-bottom: 2px solid var(--light-grey); */
 }
 .nodeData{
     display: flex;
+}
+.dropDown{
+    display: flex;
+    width: 24px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+.dropDown svg{
+    margin-top: 10px;
+}
+.line {
+    width:0;
+    height: 100%;
+    overflow: hidden;
+    margin-left: 11px;
+    margin-right: 11px;
+    border-left: 2px;
+    border-left-style:solid;
+}
+
+.lineEnd{
+    width:24px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    /* border-left: 2px;
+    border-left-style:dashed; */
+}
+.horizontalDash{
+    align-items: center;
+    height: 100%;
+}
+.verticalDash{
+    align-self: center;
+    width: 11px;
+    border-bottom: 2px solid;
+}
+.halfHorizontalDash{
+    height: 50%;
+    /* margin-bottom: calc(100%-2px); */
+}
+.halfHorizontalDash , .horizontalDash{
+    margin-left: 11px;
+    border-left: 2px;
+    border-left-style:solid;
+}
+.heading{
+    width: 100%;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    border-bottom: 1px solid var(--light-grey);
+    cursor: pointer;
 }

@@ -23,4 +23,8 @@
     color: white;
     /* border-radius: 16px; */
 }
+.divider{
+    width: 100%;
+    border-bottom: 2px solid var(--light-grey);
+}
 
