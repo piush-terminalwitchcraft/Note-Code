@@ -30,6 +30,7 @@ function Childrens(props) {
           <CellFrame
             cellData={child}
             key={child.id}
+            onClick = {props.onClick}
             anchestor={[...props.anchestor, 1]}
             lastChildIndex={data.length - 1}
             currentIndex={idx++}
@@ -43,7 +44,6 @@ function Childrens(props) {
 function Ranger(props) {
   const newAnchestor = props.anchestor;
   var listKey = 0;
-  console.log(newAnchestor);
   function EmptyComponent() {
     return (
       <div style={{ width: "24px", height: "100%", overflow: "hidden" }}></div>
@@ -97,6 +97,10 @@ function CellFrame(props) {
   var data = props.cellData;
   var anchestor = props.anchestor;
   var newAnchestor = anchestor;
+
+  const handleClick = () => {
+    props.onClick(data.id);
+  }
   // If dropdown exists show recursive cell frames
   var lastChild = props.lastChildIndex === props.currentIndex;
   const [showChildren, setShowChildren] = useState(false);
@@ -106,20 +110,20 @@ function CellFrame(props) {
     newAnchestor[newAnchestor.length - 1] = 0;
   }
 
-  console.log("id -> ", data.id);
-  console.log("anchestor ->", anchestor);
-  console.log("last child index -> ", props.lastChildIndex);
-  console.log("current index ->", props.currentIndex);
+  // console.log("id -> ", data.id);
+  // console.log("anchestor ->", anchestor);
+  // console.log("last child index -> ", props.lastChildIndex);
+  // console.log("current index ->", props.currentIndex);
 
   // When dropdown is clicked , change the states
   const dropDownClick = () => setShowChildren(!showChildren);
   // const [community,setCommunity] = useState(props.cellData);
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} >
       <div className={styles.nodeData}>
         <Ranger anchestor={anchestor} last={lastChild} selfKey={data.id}/>
         {data.children.length ? <DropDown onClick={dropDownClick} /> : <></>}
-        <div className={styles.heading}>
+        <div className={styles.heading} onClick={handleClick}>
           <div>{data.heading}</div>
           <div>{data.description}</div>
         </div>
@@ -128,6 +132,7 @@ function CellFrame(props) {
         <Childrens
           childData={data.children}
           anchestor={newAnchestor}
+          onClick={props.onClick}
           lastChildIndex={props.lastChildIndex}
         />
       ) : (

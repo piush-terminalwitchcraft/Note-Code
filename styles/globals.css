@@ -130,12 +130,11 @@ a {
 .gutter{
 	cursor: col-resize;
 	width: 6px!important;
-	background-image: url('./../public/three_dots.svg');
+	background-image: url('/three_dots.svg');
   	background-repeat: no-repeat;
   	background-position: center;
   	background-size: 3px;
 	background-color: var(--light-grey);
-
 }
 
 h1, h2, h3, h4, h5, h6{
