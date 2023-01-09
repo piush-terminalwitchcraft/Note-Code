@@ -1,0 +1,19 @@
+.code{
+    position: relative;
+}
+.copyIcon{
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.copyIcon:hover{
+    transform: scale(1.02);
+    color: white;
+}
+
+.copyIcon:active{
+    transform: scale(0.98);
+    color:grey;
+}

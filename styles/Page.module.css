@@ -1,11 +1,23 @@
 .page{
     width: 100%;
+    padding: 16px;
+    margin-bottom: 32px;
     position: relative;
+    box-shadow: var(--box-shadow-expanded);
 }
 
 .pageButtons{
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -12px;
+    right: 8px;
+    padding: 4px;
     transition: 0.2s ease-in-out;
+    box-shadow: var(--box-shadow);
+    border-radius: 4px;
+    background-color: var(--color1);
+}
+.pageIconButtons{
+    display: inline;
+    /* background-color: var(--light-grey); */
+    margin: 4px;
 }

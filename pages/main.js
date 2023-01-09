@@ -7,10 +7,9 @@ import community from "../models/community";
 
 function Body(props) {
   const divRef = useRef(null);
-  var noteData = props.data;
-
-  const [components, setComponents] = useState(noteData.content);
-  // if (content.length == 0) modifyContent([...content, ""]);
+  const { noteData } = props;
+  var noteContents = ["<h1>Hello</h1>", "<h2>Kaise ho</h2>"];
+  const [components, setComponents] = useState([]);
 
   function handleKeyDown(event) {
     console.log("clicked something");
@@ -18,21 +17,21 @@ function Body(props) {
       console.log("Ctrl + space invoked");
     }
   }
+  const regenerateComponents = () =>
+    noteContents.map((htmlData, index) => {
+      return (
+        <Page
+          data={htmlData}
+          key={index}
+          readOnly={true}
+          index={index}
+          actionTrigger={actionTrigger}
+        />
+      );
+    });
   const updatePageLocally = (index, htmlString) => {
-    noteData.content[index] = htmlString;
-    setComponents(
-      noteData.content.map((htmlData, index) => {
-        return (
-          <Page
-            data={htmlData}
-            key={index}
-            readOnly={true}
-            index={index}
-            actionTrigger={actionTrigger}
-          />
-        );
-      })
-    );
+    noteContents[index] = htmlString;
+    setComponents(regenerateComponents);
   };
   const actionTrigger = (command, index, htmlString) => {
     console.log(command, index, htmlString);
@@ -44,32 +43,27 @@ function Body(props) {
        */
       // updateServer();
     } else if (command === "DELETE") {
-    } else if (command === "MODIFY") {
+      noteContents.splice(index,1);
+      setComponents(regenerateComponents)
+    } else if (command === "INSERT") {
+      console.log("Inserting ");
+      // Insert a new element into the noteData.content array
+      noteContents.splice(index + 1, 0, "Hello new thing inserted!");
+      // Update the components state to reflect the change
+      setComponents(regenerateComponents);
     } else {
       alert("Error ! action aborted");
     }
-    // console.log(index);
   };
 
   useEffect(() => {
     console.log("useEffect called");
-    const newComponents = noteData.content.map((htmlData, index) => {
-      return (
-        <Page
-          data={htmlData}
-          key={index}
-          readOnly={true}
-          index={index}
-          actionTrigger={actionTrigger}
-        />
-      );
-    });
-    setComponents(newComponents);
+    setComponents(regenerateComponents);
     // divRef.current.addEventListener("keydown", handleKeyDown);
     return () => {
       // divRef.current.removeEventListener("keydown", handleKeyDown);
     };
-  }, [noteData]);
+  }, []);
 
   return (
     <div className={style.contents}>
@@ -96,42 +90,18 @@ function Body(props) {
 
 export default function Main() {
   var dummy = [
-    new community(
-      "1",
-      "Mera whatsapp group",
-      "ncksjdncks",
-      ["<p> Hi </p>", "<p> Hello </p> <h1>Hello all</h1>", "<p> kaise ho </p>"],
-      []
-    ),
-    new community(
-      "2",
-      "Mera whatsapp group 2",
-      "ncksjdncks",
-      [],
-      [
-        new community(
-          "21",
-          "sub grp",
-          "dscewcew",
-          [],
-          [
-            new community("211", "sub grp 2", "dscewcew", [], []),
-            new community("212", "sub grp 3", "dscewcew", [], []),
-          ]
-        ),
-        new community(
-          "22",
-          "dexeq",
-          "axeqdwq",
-          [],
-          [
-            new community("221", "sub grp 2", "dscewcew", [], []),
-            new community("223", "sub grp 3", "dscewcew", [], []),
-          ]
-        ),
-      ]
-    ),
-    new community("3", "Mera whatsapp group 3", "ncksjdncks", [], []),
+    new community("1", "Mera whatsapp group", "ncksjdncks", []),
+    new community("2", "Mera whatsapp group 2", "ncksjdncks", [
+      new community("21", "sub grp", "dscewcew", [
+        new community("211", "sub grp 2", "dscewcew", []),
+        new community("212", "sub grp 3", "dscewcew", []),
+      ]),
+      new community("22", "dexeq", "axeqdwq", [
+        new community("221", "sub grp 2", "dscewcew", []),
+        new community("223", "sub grp 3", "dscewcew", []),
+      ]),
+    ]),
+    new community("3", "Mera whatsapp group 3", "ncksjdncks", []),
   ];
 
   const [currentNodeData, setNodeData] = useState(dummy[0]);
@@ -161,7 +131,7 @@ export default function Main() {
           })}
         </div>
         <div className={style.rightPart}>
-          <Body data={currentNodeData} />
+          <Body nodeData={currentNodeData} />
         </div>
       </Split>
     </div>

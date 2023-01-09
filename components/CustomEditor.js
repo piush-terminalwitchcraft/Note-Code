@@ -1,5 +1,9 @@
 import React,{useState} from "react";
 import { CKEditor } from "ckeditor4-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleCheck,
+} from "@fortawesome/free-solid-svg-icons";
 
 function CustomEditor(props) {
   const {toggle, setHtmlData} = props;
@@ -103,10 +107,15 @@ function CustomEditor(props) {
           border:'none'
         } }
       />
-      <button onClick={()=>{
+      <FontAwesomeIcon 
+      icon={faCircleCheck}
+      size="xl"
+      onClick={()=>{
         toggle();
         setHtmlData(htmlString);
-      }}> Save</button>
+      }} 
+      style={{float:"right",margin:"8px",backgroundColor:"var(--color1)",borderRadius:"24px"}}
+      />
     </div>
   );
 }

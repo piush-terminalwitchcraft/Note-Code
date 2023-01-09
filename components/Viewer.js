@@ -1,22 +1,32 @@
 import React from "react";
 import parse from "html-react-parser";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { monokai, atelierLakesideDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import styles from './../styles/viewer.module.css'
+import {
+  monokai,
+  atelierLakesideDark,
+} from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import CopyToClipboard from "react-copy-to-clipboard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 function extractCode(node) {
   const language = node.attribs.class.replace("language-", "");
   const code = node.children[0].data;
   return code ? (
-    <div>
-        <CopyToClipboard text={code}>
-        <button>Copy</button>
+    <div className={styles.code}>
+      <CopyToClipboard
+        text={code}
+        className={styles.copyIcon}
+      >
+        <FontAwesomeIcon icon={faCopy} size="1xl"
+        />
       </CopyToClipboard>
-      
-    <SyntaxHighlighter language={language} style={atelierLakesideDark}>{code}</SyntaxHighlighter>
 
+      <SyntaxHighlighter language={language} style={atelierLakesideDark}>
+        {code}
+      </SyntaxHighlighter>
     </div>
-    
   ) : null;
 }
 
