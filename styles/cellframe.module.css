@@ -8,14 +8,13 @@
 }
 .dropDown{
     display: flex;
-    width: 24px;
+    width: 24px!important;
+    overflow: hidden;
     justify-items: center;
     justify-content: center;
     align-items: center;
 }
-.dropDown svg{
-    margin-top: 10px;
-}
+
 .line {
     width:0;
     height: 100%;
@@ -58,4 +57,9 @@
     padding-left: 8px;
     border-bottom: 1px solid var(--light-grey);
     cursor: pointer;
+    margin-bottom: -1px;
 }
+/* .borderBottom{
+    border-bottom: 1px solid var(--light-grey);
+
+} */

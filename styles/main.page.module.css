@@ -20,11 +20,23 @@
 }
 .leftPart{
     overflow-y: auto;
+    overflow-x: hidden;
     color: white;
     /* border-radius: 16px; */
+}
+.rightPart{
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .divider{
     width: 100%;
     border-bottom: 2px solid var(--light-grey);
+}
+.contents{
+    padding-bottom: 200px;
+}
+.contents :focus, .contents:focus-visible{
+    /* min-height: 300px; */
+    border: 2px solid green;
 }
 

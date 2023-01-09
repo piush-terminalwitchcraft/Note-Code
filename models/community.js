@@ -1,10 +1,11 @@
 class community {
     
-    constructor(id,heading, description, children){
+    constructor(id,heading, description, content, children){
         this.id = id;
         this.heading = heading; 
         this.description = description;
         this.children = children;
+        this.content = content;
     }
 
 }
