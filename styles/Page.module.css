@@ -1,0 +1,11 @@
+.page{
+    width: 100%;
+    position: relative;
+}
+
+.pageButtons{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.2s ease-in-out;
+}

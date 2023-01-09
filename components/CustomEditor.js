@@ -1,8 +1,9 @@
 import React,{useState} from "react";
 import { CKEditor } from "ckeditor4-react";
 
-function CustomEditor() {
-  const [data, setData] = useState('');
+function CustomEditor(props) {
+  const {toggle, setHtmlData} = props;
+  const [htmlString, setHtmlString] = useState(props.htmlData);
   return (
     <div >
       <CKEditor 
@@ -95,14 +96,17 @@ function CustomEditor() {
           fontSize_sizes: '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px'
         }}
         tabindex="-1"
-        data={data}
-        onChange={(event) => setData(event.editor.getData())}
+        initData={htmlString}
+        onChange={(event) => setHtmlString(event.editor.getData())}
         style={ {
           borderRadius: '12px',
           border:'none'
         } }
       />
-  
+      <button onClick={()=>{
+        toggle();
+        setHtmlData(htmlString);
+      }}> Save</button>
     </div>
   );
 }
