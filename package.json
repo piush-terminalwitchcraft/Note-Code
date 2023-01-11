@@ -24,7 +24,10 @@
     "react-dom": "^18.2.0",
     "react-split": "^2.0.14",
     "react-svg": "^15.1.17",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "webpack": "^5.75.0",
+    "webpack-dev-middleware": "^6.0.1",
+    "webpack-hot-middleware": "2.25.3"
   },
   "devDependencies": {
     "babel-plugin-syntax-export-extensions": "^6.13.0"
