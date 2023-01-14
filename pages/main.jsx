@@ -111,6 +111,7 @@ export default function Main() {
   };
 
   return (
+    
     <div className={style.mainBody}>
       <div className={style.header}>Welcome to note</div>
       <Split sizes={[20, 80]} className={style.mainContainer}>
